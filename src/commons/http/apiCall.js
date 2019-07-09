@@ -5,7 +5,8 @@ const token = localStorage.getItem('JWT')
 class HTTPRequest {
     constructor() {
         this.headers = {
-            'Authorization': `Bearer ${token}`
+            'Authorization': `Bearer ${token}`,
+            'content-type': 'application/json'
         }
 
         this.url = ''
@@ -46,7 +47,7 @@ class HTTPRequest {
         return response
     }
 
-    deletet = async () => {
+    delete = async () => {
         const reponse = await axios({
             method: 'DELETE',
             url: this.url,

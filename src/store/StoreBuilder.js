@@ -6,13 +6,6 @@ import { compose as recompose, defaultProps } from 'recompose'
 import StoreContainer from './StoreContainer.js'
 import { noop, functions, isEmpty } from 'lodash'
 
-const test = (state, action) => {
-    switch(action.type) {
-        default: 
-            return {test: 'works'}
-    }
-}
-
 const reduceReducers = (reducers) => (state, action) =>
     reducers.reduce((result, reducer) => (
         reducer(result, action)
