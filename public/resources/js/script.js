@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    console.log('loaded')
+    console.log('loaded', $('a[href*=#]:not([href=#])'))
     
     /* For the sticky navigation */
     $('.js--section-features').waypoint(function(direction) {
@@ -22,11 +22,25 @@ $(document).ready(function() {
        $('html, body').animate({scrollTop: $('.js--section-features').offset().top}, 1000); 
     });
     
+    $('a[href*=#]:not([href=#])').click(function() {
+        alert('clicked')
+
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+          var target = $(this.hash);
+          target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+          if (target.length) {
+            $('html,body').animate({
+              scrollTop: target.offset().top
+            }, 1000);
+            return false;
+          }
+        }
+      });
     
     /* Navigation scroll */
-    $(function() {
+    $(function() { 
       $('a[href*=#]:not([href=#])').click(function() {
-        console.log('clicked')
+        alert('clicked')
 
         if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
           var target = $(this.hash);

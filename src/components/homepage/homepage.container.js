@@ -1,56 +1,50 @@
 import React, { Component } from 'react'
 import './homepage.styles.css'
 import '../../commons/resources/css/queries.css'
-import LogoWhite from '../../commons/resources/images/logo-white.png'
-import Logo from '../../commons/resources/images/logo.png'
-import One from '../../commons/resources/images/1.jpg'
-import Two from '../../commons/resources/images/2.jpg'
-import Four from '../../commons/resources/images/4.jpg'
-import Five from '../../commons/resources/images/5.jpg'
-import Six from '../../commons/resources/images/6.jpg'
-import Seven from '../../commons/resources/images/7.jpg'
-import Eight from '../../commons/resources/images/8.jpg'
-import Three from '../../commons/resources/images/3.jpg'
+import { Header, Footer } from '../../commons/components/index'
+import { Link } from 'react-router-dom'
+import One from '../../commons/resources/images/One1.jpg'
+import Two from '../../commons/resources/images/Two1.jpg'
+import Four from '../../commons/resources/images/Four1.jpg'
+import Five from '../../commons/resources/images/Five1.jpg'
+import Six from '../../commons/resources/images/Six1.jpg'
+import Seven from '../../commons/resources/images/Seven1.jpg'
+import Eight from '../../commons/resources/images/Eight1.jpg'
+import Three from '../../commons/resources/images/Three1.jpg'
+import Cust1 from '../../commons/resources/images/customer-1.jpg'
+import Cust2 from '../../commons/resources/images/customer-2.jpg'
+import Cust3 from '../../commons/resources/images/customer-3.jpg'
 
 class Homepage extends Component {
+    constructor(props) {
+        super(props) 
+        this.featureRef = React.createRef()
+        this.menuRef = React.createRef()
+    }
+
+    onSubmit(e) {
+        e.preventDefault()
+        alert('Thanks for your feedback! Hope to see you around =)')
+    }
 
     render() {
         return(
             <div>
-                <header>
-                    <nav>
-                        <div className="row">
-                            <img src={LogoWhite} alt="Omnifood logo" className="logo" />
-                            <img src={Logo} alt="Omnifood logo" className="logo-black" />
-                            <ul className="main-nav js--main-nav">
-                                <li><a href="#features">Food delivery</a></li>
-                                <li><a href="#works">How it works</a></li>
-                                <li><a href="#cities">Our cities</a></li>
-                                <li><a href="#plans">Sign up</a></li>
-                            </ul>
-                            <a className="mobile-nav-icon js--nav-icon"  href="/"><i className="ion-navicon-round"></i></a>
-                        </div>
-                    </nav>
-                    <div className="hero-text-box">
-                        <h1>Goodbye junk food.<br />Hello super healthy meals.</h1>
-                        <a className="btn btn-full js--scroll-to-plans" href="/">I'm hungry</a>
-                        <a className="btn btn-ghost js--scroll-to-start" href="/">Show me more</a>
-                    </div>
-                </header>
-                <section className="section-features js--section-features" id="features">
-                    <div className="row">
-                        <h2>Get food fast &mdash; not fast food</h2>
+                <Header featureRef={this.featureRef} menuRef={this.menuRef} />
+                <section ref={this.featureRef} className="section-features js--section-features" id="features">
+                    <div className="row" style={{textAlign: 'center'}}>
+                        <h2 style={{fontWeight: 'bold', letterSpacing: '7px'}} >HelloVietnam</h2>
                         <p className="long-copy">
-                            Hello, we're Omnifood, your new premium food delivery service. We know you're always busy. No time for cooking. So let us take care of that, we're really good at it, we promise!
+                            Wellcome to HelloVietnam, your new favorite food service. We know you're always busy. No time for cooking. So let us take care of that, we're really good at it, we promise!
                         </p>
                     </div>
             
                     <div className="row js--wp-1">
                         <div className="col span-1-of-3 box">
                             <i className="ion-ios-stopwatch-outline icon-big"></i>
-                            <h3>Ready in 20 minutes</h3>
+                            <h3>Ready within 60 minutes</h3>
                             <p>
-                                You're only twenty minutes away from your delicious and super healthy meals delivered right to your home. We work with the best chefs in each town to ensure that you're 100% happy.
+                                You're only minutes away from your delicious and super healthy meals delivered right to your home. We work with the best chefs in each town to ensure that you're 100% happy.
                             </p>
                         </div>
                         <div className="col span-1-of-3 box">
@@ -64,126 +58,63 @@ class Homepage extends Component {
                             <i className="ion-ios-cart-outline icon-big"></i>
                             <h3>Order anything</h3>
                             <p>
-                                We don't limit your creativity, which means you can order whatever you feel like. You can also choose from our menu containing over 100 delicious meals. It's up to you!
+                                We don't limit your creativity, which means you can order whatever you feel like. You can also choose from our menu containing dozens of delicious meals. It's up to you!
                             </p>
                         </div>
                     </div>   
                 </section>
-                <section className="section-meals">
+                <section ref={this.menuRef} className="section-meals">
                     <ul className="meals-showcase clearfix">
                         <li>
                             <figure className="meal-photo">
-                                <img src={One} alt="Korean bibimbap with egg and vegetables" />
+                                <img src={One} alt="Vietnamese Pho" />
                             </figure>
                         </li>
                         <li>
                             <figure className="meal-photo">
-                                <img src={Two} alt="Simple italian pizza with cherry tomatoes" />
+                                <img src={Two} alt="Roasted Duck" />
                             </figure>
                         </li>
                         <li>
                             <figure className="meal-photo">
-                                <img src={Three} alt="Chicken breast steak with vegetables" />
+                                <img src={Three} alt="Spring Rolls" />
                             </figure>
                         </li>
                         <li>
                             <figure className="meal-photo">
-                                <img src={Four} alt="Autumn pumpkin soup" />
+                                <img src={Four} alt="Chicken Curry" />
                             </figure>
                         </li>
                     </ul>
                     <ul className="meals-showcase clearfix">
                         <li>
                             <figure className="meal-photo">
-                                <img src={Five} alt="Paleo beef steak with vegetables" />
+                                <img src={Five} alt="Grilled Oyster" />
                             </figure>
                         </li>
                         <li>
                             <figure className="meal-photo">
-                                <img src={Six} alt="Healthy baguette with egg and vegetables" />
+                                <img src={Six} alt="Beef steak with fries" />
                             </figure>
                         </li>
                         <li>
                             <figure className="meal-photo">
-                                <img src={Seven} alt="Burger with cheddar and bacon" />
+                                <img src={Seven} alt="Shrimp Noodles" />
                             </figure>
                         </li>
                         <li>
                             <figure className="meal-photo">
-                                <img src={Eight} alt="Granola with cherries and strawberries" />
+                                <img src={Eight} alt="Fried Shrimp" />
                             </figure>
                         </li>
                     </ul>
                 </section>
                 <section className="section-cities" id="cities">
                     <div className="row">
-                        <h2>We're currently in these cities</h2>
+                        <h2>We're currently located in Cyprus</h2>
                     </div>
-                    <div className="row js--wp-3">
-                        <div className="col span-1-of-4 box">
-                            <img src="resources/img/lisbon-3.jpg" alt="Lisbon" />
-                            <h3>Lisbon</h3>
-                            <div className="city-feature">
-                                <i className="ion-ios-person icon-small"></i>
-                                1600+ happy eaters
-                            </div>
-                            <div className="city-feature">
-                                <i className="ion-ios-star icon-small"></i>
-                                60+ top chefs
-                            </div>
-                            <div className="city-feature">
-                                <i className="ion-social-twitter icon-small"></i>
-                                <a href="#">@omnifood_lx</a>
-                            </div>
-                        </div>
-                        <div className="col span-1-of-4 box">
-                            <img src="resources/img/san-francisco.jpg" alt="San Francisco" />
-                            <h3>San Francisco</h3>
-                            <div className="city-feature">
-                                <i className="ion-ios-person icon-small"></i>
-                                3700+ happy eaters
-                            </div>
-                            <div className="city-feature">
-                                <i className="ion-ios-star icon-small"></i>
-                                160+ top chefs
-                            </div>
-                            <div className="city-feature">
-                                <i className="ion-social-twitter icon-small"></i>
-                                <a href="#">@omnifood_sf</a>
-                            </div>
-                        </div>
-                        <div className="col span-1-of-4 box">
-                            <img src="resources/img/berlin.jpg" alt="Berlin" />
-                            <h3>Berlin</h3>
-                            <div className="city-feature">
-                                <i className="ion-ios-person icon-small"></i>
-                                2300+ happy eaters
-                            </div>
-                            <div className="city-feature">
-                                <i className="ion-ios-star icon-small"></i>
-                                110+ top chefs
-                            </div>
-                            <div className="city-feature">
-                                <i className="ion-social-twitter icon-small"></i>
-                                <a href="#">@omnifood_berlin</a>
-                            </div>
-                        </div>
-                        <div className="col span-1-of-4 box">
-                            <img src="resources/img/london.jpg" alt="London" />
-                            <h3>London</h3>
-                            <div className="city-feature">
-                                <i className="ion-ios-person icon-small"></i>
-                                1200+ happy eaters
-                            </div>
-                            <div className="city-feature">
-                                <i className="ion-ios-star icon-small"></i>
-                                50+ top chefs
-                            </div>
-                            <div className="city-feature">
-                                <i className="ion-social-twitter icon-small"></i>
-                                <a href="#">@omnifood_london</a>
-                            </div>
-                        </div>
+                    <div className="location">
+                    <iframe style={{width: '800', height: '600'}} src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d820.2611234102352!2d33.05091412916554!3d34.67882650164105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14e73317564c00e3%3A0x10c3fced5f4ca726!2sChristodoulou+Chatzipavlou+223%2C+Limassol%2C+Cyprus!5e0!3m2!1sen!2sfi!4v1562965475298!5m2!1sen!2sfi"  frameborder="0" allowfullscreen></iframe>
                     </div>
                     
                 </section>
@@ -194,20 +125,20 @@ class Homepage extends Component {
                     <div className="row">
                         <div className="col span-1-of-3">
                             <blockquote>
-                                Omnifood is just awesome! I just launched a startup which leaves me with no time for cooking, so Omnifood is a life-saver. Now that I got used to it, I couldn't live without my daily meals!
-                                <cite><img src="resources/img/customer-1.jpg" />Alberto Duncan</cite>
+                            HelloVietnam is just awesome! I just launched a startup which leaves me with no time for cooking, so HelloVietnam is a life-saver. Now that I got used to it, I couldn't live without my daily meals!
+                                <cite><img alt='customer1' src={Cust1} />Alberto Duncan</cite>
                             </blockquote>
                         </div>
                         <div className="col span-1-of-3">
                             <blockquote>
-                            Inexpensive, healthy and great-tasting meals, delivered right to my home. We have lots of food delivery here in Lisbon, but no one comes even close to Omifood. Me and my family are so in love!
-                                <cite><img src="resources/img/customer-2.jpg" />Joana Silva</cite>
+                            Inexpensive, healthy and great-tasting meals, delivered right to my home. We have lots of food delivery here in Warsaw, but no one comes even close to HelloVietnam. Me and my family are so in love!
+                                <cite><img alt='customer2' src={Cust2} />Joana Silva</cite>
                             </blockquote>
                         </div>
                         <div className="col span-1-of-3">
                             <blockquote>
-        I was looking for a quick and easy food delivery service in San Franciso. I tried a lot of them and ended up with Omnifood. Best food delivery service in the Bay Area. Keep up the great work!
-                            <cite><img src="resources/img/customer-3.jpg" />Milton Chapman</cite>
+                            I was looking for a quick and easy food delivery services. I tried a lot of them and ended up with HelloVietnam. Keep up the great work!
+                            <cite><img alt='customer3' src={Cust3} />Milton Chapman</cite>
                             </blockquote>
                         </div>
                     </div>
@@ -218,7 +149,7 @@ class Homepage extends Component {
                         <h2>We're happy to hear from you</h2>
                     </div>
                     <div className="row">
-                        <form method="post" action="#" className="contact-form">
+                        <form onSubmit={(e) => this.onSubmit(e)} className="contact-form">
                             <div className="row">
                                 <div className="col span-1-of-3">
                                     <label htmlFor="name">Name</label>
@@ -269,7 +200,7 @@ class Homepage extends Component {
                                     <label>&nbsp;</label>
                                 </div>
                                 <div className="col span-2-of-3">
-                                    <input type="submit" value="Send it!" />
+                                    <input type='submit' value="Send it!" />
                                 </div>
                             </div>
                             
@@ -277,27 +208,8 @@ class Homepage extends Component {
                         
                     </div>
                 </section>
-                <footer>
-                    <div className="row">
-                        <div className="col span-1-of-2">
-                            <ul className="footer-nav">
-                                <li><a href="#">About us</a></li>
-                                <li><a href="#">Blog</a></li>
-                                <li><a href="#">Press</a></li>
-                                <li><a href="#">iOS App</a></li>
-                                <li><a href="#">Android App</a></li>
-                            </ul>
-                        </div>
-                        <div className="col span-1-of-2">
-                            <ul className="social-links">
-                                <li><a href="#"><i className="ion-social-facebook"></i></a></li>
-                                <li><a href="#"><i className="ion-social-twitter"></i></a></li>
-                                <li><a href="#"><i className="ion-social-googleplus"></i></a></li>
-                                <li><a href="#"><i className="ion-social-instagram"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </footer>
+                                
+                <Footer />
             </div>
         )
     }

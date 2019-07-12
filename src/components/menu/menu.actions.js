@@ -1,0 +1,1 @@
+export const getDishes = (menuType) => ({ type: `GET_${menuType}`, payload: { menuType } })

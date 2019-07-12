@@ -1,0 +1,162 @@
+.menu {
+    padding: 60px 10%;
+
+    &-nav {
+        text-align: center;
+
+        .back-button:hover {
+            color: #e67e22;
+        }
+    }
+
+    .page-numbers {
+        text-align: center;
+        margin-top: 30px;
+
+        .number {
+            list-style: none;
+            cursor: pointer;
+            font-size: 15px;
+            display: inline-block;
+            padding: 6px 10px;
+            border-radius: 2px;
+            color: #555555;
+
+            &--active {
+                background-color: #e67e22;
+                color: #fff;
+            }
+
+            &:hover {
+                background-color: #e67e22;
+                color: #fff;
+            }
+        }
+    }
+
+    &-categories {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        padding: 20px;
+        grid-row-gap: 10px;
+        
+        .category {
+            margin: 15px;
+
+            .food-image {
+                box-shadow: 0 1px 4px 0 rgba(156, 156, 156, 0.5);
+                max-width: 100%;
+                margin-bottom: 10px;
+            }
+
+            &-image {
+                display: block;
+                height: 200px;
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                box-shadow: 0 1px 4px 0 hsla(0,0%,61%,.5);
+                margin-bottom: 15px;
+
+                &--Appetizers {
+                    background-image: url('../../commons/resources/images/appetizer.jpg');
+                }
+
+                &--MainDish {
+                    background-image: url('../../commons/resources/images/main-dish.jpg');
+                }
+
+                &--FriedRice {
+                    background-image: url('../../commons/resources/images/fried-rice1.jpg');
+                }
+
+                &--Rolls {
+                    background-image: url('../../commons/resources/images/rolls.jpg');
+                }
+
+                &--Extra {
+                    background-image: url('../../commons/resources/images/fries.jpg');
+                }
+
+                &--Drinks {
+                    background-image: url('../../commons/resources/images/drinks.jpg');
+                }
+
+                &--NoodlesandPho {
+                    background-image: url('../../commons/resources/images/noodles-and-pho.jpg');
+                }
+
+                &--SideDish {
+                    background-image: url('../../commons/resources/images/side-dish.jpg');
+                }
+            }
+
+            &-description {
+
+            }
+
+            .food-price {
+                font-size: 16px;
+                margin-top: 5px;
+            }
+
+            .order-button {
+                font-size: 17px;
+                width: 100%;
+                padding: 8px;
+                color: #fff;
+                background-color: #e67e22;
+                border-radius: 2px;
+                margin-top: 10px;
+                border: none;
+                text-transform: uppercase;
+                transition: all .2s;
+
+                &:hover {
+                    background-color: #cf6d17;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .menu {
+        padding: 50px 5%;
+
+        .category {
+            text-align: center;
+
+            .order-button {
+                font-size: 14px;
+            }
+        }
+
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .menu {
+
+        &-categories { 
+            grid-template-columns: 1fr 1fr 1fr;
+            padding: 0;
+
+            .category {
+
+                &-image {
+                    height: 120px;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .menu {
+
+        &-categories { 
+            grid-template-columns: 1fr 1fr;
+        }
+    } 
+}

@@ -8,10 +8,15 @@ Orange color: #e67e22
 /* BASIC SETUP */
 /* ----------------------------------------------- */
 
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+textarea {
+    resize: none;
 }
 
 html,
@@ -22,7 +27,10 @@ body {
     font-weight: 300;
     font-size: 20px;
     text-rendering: optimizeLegibility;
-    overflow-x: hidden;
+}
+
+a {
+    cursor: pointer;
 }
 
 .clearfix {zoom: 1;}
@@ -128,7 +136,6 @@ h2:after {
 }
 
 /* ----- LINKS ----- */
-
 a:link,
 a:visited {
     color: #e67e22;
@@ -139,13 +146,14 @@ a:visited {
     transition: border-bottom 0.2s, color 0.2s;
 }
 
-a:hover,
+/* a:hover,
 a:active {
     color: #555;
     border-bottom: 1px solid transparent;
-}
+} */
 
 /* ----- BUTTONS ----- */
+.btn,
 .btn:link,
 .btn:visited,
 input[type=submit] {
@@ -158,6 +166,7 @@ input[type=submit] {
     transition: background-color 0.2s, border 0.2s, color 0.2s;
 }
 
+.btn-full,
 .btn-full:link,
 .btn-full:visited,
 input[type=submit] {
@@ -167,6 +176,7 @@ input[type=submit] {
     margin-right: 15px;
 }
 
+.btn-ghost,
 .btn-ghost:link,
 .btn-ghost:visited {
     border: 1px solid #e67e22;
@@ -197,8 +207,8 @@ input[type=submit]:active {
 /* ----------------------------------------------- */
 
 header {
-    background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../../commons/resources/images/hero.jpg);
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../../commons/resources/images/hero.jpg);
+    background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../../commons/resources/images/background-hero.jpeg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../../commons/resources/images/background-hero.jpeg);
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -242,6 +252,7 @@ header {
     margin-left: 40px;
 }
 
+.main-nav li a,
 .main-nav li a:link,
 .main-nav li a:visited {
     padding: 8px 0;
@@ -427,6 +438,11 @@ header {
     margin-bottom: 5px;
 }
 
+.location {
+    display: flex;
+    justify-content: center;
+}
+
 
 /* ----------------------------------------------- */
 /* TESTIMONIALS */
@@ -565,7 +581,7 @@ input[type=checkbox] {
 
 footer {
     background-color: #333;
-    padding: 50px;
+    padding: 30px;
     font-size: 80%;
 }
 
@@ -635,14 +651,11 @@ footer {
     color: #517fa4;
 }
 
-
 footer p {
     color: #888;
     text-align: center;
     margin-top: 20px;
 }
-
-
 
 
 /* ----------------------------------------------- */
@@ -653,9 +666,9 @@ footer p {
 .js--wp-2,
 .js--wp-3
 {
-    opacity: 0;
+    /* opacity: 0;
     -webkit-animation-duration: 1s;
-    animation-duration: 1s;
+    animation-duration: 1s; */
 }
 
 .js--wp-4 {

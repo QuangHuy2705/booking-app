@@ -57,7 +57,17 @@
     }
     
     
-    .main-nav { display: none; }
+    .main-nav { 
+        margin: 10px !important;
+        opacity: 0;
+        transform: translateY(-500  px);
+        transition: all .3s;
+    }
+
+    .main-nav--active {
+        opacity: 1;
+        transform: translateY(0px);
+    }
     .mobile-nav-icon {display: inline-block;}
     
     .main-nav {

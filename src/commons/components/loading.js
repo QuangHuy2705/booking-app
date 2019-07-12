@@ -1,8 +1,9 @@
 import React from 'react'
+import Loader from '../resources/images/loader.gif'
 
 const Loading = () => {
     return (
-        <h1>Loading...</h1>
+        <img src={Loader} alt='loader' style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)'}} />
     )
 }
 

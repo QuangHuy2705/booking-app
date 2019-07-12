@@ -11,6 +11,11 @@ const HomePage = Loadable({
   loading: Loading,
 });
 
+const Menu = Loadable({
+  loader: () => import('./components/menu/index'),
+  loading: Loading,
+})
+
 function App() {
   return (
     <div className="App">
@@ -18,6 +23,7 @@ function App() {
         <BrowserRouter>
           <Switch>
             <Route path="/" exact component={HomePage} />
+            <Route path='/menu' component={Menu} />
           </Switch>
         </BrowserRouter>
       </StoreContainer>
