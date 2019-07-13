@@ -27,7 +27,7 @@ class Navbar extends React.Component {
                     <ul className={this.state.isMobileNavShown ? `${styles['main-nav']} ${styles['main-nav--active']}` : `${styles[`main-nav`]}`}>
                         <li><Link to='/'>Homepage</Link></li>
                         <li><Link to="/menu">Menu</Link></li>
-                        <li><a href="#plans">Sign up</a></li>
+                        <li><Link to="/">Sign up</Link></li>
                     </ul>
                     <a onClick={() => this.onToggleNav()} className={`${styles[`mobile-nav-icon`]} ${styles[`js--nav-icon`]}`}><i className='ion-navicon-round'></i></a>
                 </div>

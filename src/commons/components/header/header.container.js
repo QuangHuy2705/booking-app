@@ -26,7 +26,7 @@ export default class Navbar extends React.Component {
     }
 
     render() {
-        const { featureRef, menuRef } = this.props
+        const { menuRef } = this.props
 
         return (
             <header>
@@ -41,7 +41,7 @@ export default class Navbar extends React.Component {
                         <ul className={this.state.isMobileNavShown ? `main-nav main-nav--active` : `main-nav main`}>
                             <li><Link to='/'>Homepage</Link></li>
                             <li><Link to="/menu">Menu</Link></li>
-                            <li><a href="#plans">Sign up</a></li>
+                            <li><Link to="/">Sign up</Link></li>
                         </ul>
                         <a onClick={() => this.onToggleNav()} className="mobile-nav-icon js--nav-icon"><i className="ion-navicon-round"></i></a>
                     </div>
