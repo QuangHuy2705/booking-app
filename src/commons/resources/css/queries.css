@@ -18,6 +18,10 @@
         width: 80%;
         margin-left: 10%;
     }
+
+    .meal-photo img {
+        opacity: 1;
+    }
     
     .steps-box { margin-top: 10px; }
     .steps-box:last-child { margin-top: 10px; }
