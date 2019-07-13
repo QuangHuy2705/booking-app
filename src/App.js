@@ -20,10 +20,10 @@ function App() {
   return (
     <div className="App">
       <StoreContainer>
-        <HashRouter basename='/'>
+        <HashRouter>
           <Switch>
-            <Route path="/" exact component={HomePage} />
-            <Route path='/menu' component={Menu} />
+            <Route exact path="/" component={HomePage} />
+            <Route exact path='/menu' component={Menu} />
           </Switch>
         </HashRouter>
       </StoreContainer>
