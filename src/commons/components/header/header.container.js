@@ -1,11 +1,12 @@
 import React from 'react'
 import LogoWhite from '../../resources/images/logo-white.png'
 import Logo from '../../resources/images/logo.png'
+import { withRouter } from 'react-router' 
 import '../../../components/homepage/homepage.styles.css'
 import '../../resources/css/queries.css'
 import { Link } from 'react-router-dom'
 
-export default class Navbar extends React.Component {
+class Header extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -27,6 +28,7 @@ export default class Navbar extends React.Component {
 
     render() {
         const { menuRef } = this.props
+        const { history: { location: {pathname} } } = this.props
 
         return (
             <header>
@@ -39,7 +41,7 @@ export default class Navbar extends React.Component {
                             <img src={Logo} alt="Omnifood logo" className="logo-black" />
                         </Link>
                         <ul className={this.state.isMobileNavShown ? `main-nav main-nav--active` : `main-nav main`}>
-                            <li><Link to='/'>Homepage</Link></li>
+                            <li><Link  className={pathname === '/' ? 'nav-link--active' : ''}  to='/'>Homepage</Link></li>
                             <li><Link to="/menu">Menu</Link></li>
                             <li><Link to="/">Sign up</Link></li>
                         </ul>
@@ -55,3 +57,5 @@ export default class Navbar extends React.Component {
         )
     }
 }
+
+export default withRouter(Header)

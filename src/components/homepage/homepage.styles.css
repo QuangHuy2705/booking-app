@@ -252,6 +252,10 @@ header {
     margin-left: 40px;
 }
 
+.nav-link--active  {
+    border-bottom: 2px solid #e67e22 !important;
+}
+
 .main-nav li a,
 .main-nav li a:link,
 .main-nav li a:visited {

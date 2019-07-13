@@ -1,18 +1,11 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { isArray } from 'lodash'
-import { Observable, of, zip } from 'rxjs'
+import { Observable, of, zip, from } from 'rxjs'
 import { Subject } from 'rxjs/Subject'
-import 'rxjs/add/operator/map'
-import 'rxjs/add/operator/takeUntil'
-import 'rxjs/add/observable/zip'
-import 'rxjs/add/observable/of'
-// import 'rxjs/add/observable/from'
-import { from } from 'rxjs';
 import { map, takeUntil } from 'rxjs/operators';
 
 const moduleDefaultExport = module => module.default || module
-
 
 function esModule(module, forceArray) {
   if (isArray(module)) {
@@ -22,8 +15,6 @@ function esModule(module, forceArray) {
   const defualted = moduleDefaultExport(module)
   return forceArray ? [defualted] : defualted
 }
-
-
 
 export default function asyncRoute(getComponent, getReducers, getEpics) {
 

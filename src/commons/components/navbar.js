@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import LogoWhite from '../resources/images/logo-white.png'
+import { withRouter } from 'react-router' 
 import * as styles from '../resources/css/navbar.module.scss'
 
 class Navbar extends React.Component {
@@ -18,6 +19,7 @@ class Navbar extends React.Component {
     }
 
     render() {
+        const { history: { location: {pathname} } } = this.props
         return (
             <nav className={styles.navbar}>
                 <div className={`${styles[`nav-items`]}`}>
@@ -26,7 +28,7 @@ class Navbar extends React.Component {
                     </Link>
                     <ul className={this.state.isMobileNavShown ? `${styles['main-nav']} ${styles['main-nav--active']}` : `${styles[`main-nav`]}`}>
                         <li><Link to='/'>Homepage</Link></li>
-                        <li><Link to="/menu">Menu</Link></li>
+                        <li><Link className={pathname === '/menu' ? `${styles[`nav-link--active`]}` : ''} to="/menu">Menu</Link></li>
                         <li><Link to="/">Sign up</Link></li>
                     </ul>
                     <a onClick={() => this.onToggleNav()} className={`${styles[`mobile-nav-icon`]} ${styles[`js--nav-icon`]}`}><i className='ion-navicon-round'></i></a>
@@ -36,4 +38,4 @@ class Navbar extends React.Component {
     }   
 } 
 
-export default Navbar
+export default withRouter(Navbar)

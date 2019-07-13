@@ -22,6 +22,10 @@
     .main-nav {
         list-style: none;
 
+        .nav-link--active {
+            border-bottom: 2px solid #e67e22 !important;
+        }
+
         li {
             display: inline-block;
             margin-left: 40px;
