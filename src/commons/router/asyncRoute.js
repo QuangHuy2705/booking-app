@@ -7,7 +7,8 @@ import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/takeUntil'
 import 'rxjs/add/observable/zip'
 import 'rxjs/add/observable/of'
-import 'rxjs/add/observable/fromPromise'
+import { fromPromise } from 'rxjs/observable/fromPromise'
+
 
 const moduleDefaultExport = module => module.default || module
 
@@ -54,7 +55,7 @@ export default function asyncRoute(getComponent, getReducers, getEpics) {
           Component
             ? Observable.of(Component)
               .takeUntil(this._componentWillUnmountSubject)
-            : Observable.fromPromise(getComponent)
+            : fromPromise(getComponent)
               .map(esModule)
               .map(Component => {
                 console.log(`LOADED`, Component)
@@ -66,7 +67,7 @@ export default function asyncRoute(getComponent, getReducers, getEpics) {
 
         if (shouldLoadReducers) {
           streams.push(
-            Observable.fromPromise(getReducers)
+            fromPromise(getReducers)
               .map(module => esModule(module, true))
               .map(reducers => {
                 console.log(`newReducers`, reducers)
@@ -79,7 +80,7 @@ export default function asyncRoute(getComponent, getReducers, getEpics) {
 
         if (shouldLoadEpics) {
           streams.push(
-            Observable.fromPromise(getEpics)
+            fromPromise(getEpics)
               .map(epics => {
                 console.log(`NEW EPICS`, epics)
                 registerEpics(epics)

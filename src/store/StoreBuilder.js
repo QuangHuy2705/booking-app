@@ -1,6 +1,6 @@
-import { BehaviorSubject } from 'rxjs';
-import { combineEpics, createEpicMiddleware } from 'redux-observable';
-import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
+import { BehaviorSubject } from 'rxjs'
+import { combineEpics, createEpicMiddleware } from 'redux-observable'
+import { createStore, applyMiddleware, combineReducers, compose } from 'redux'
 import { mergeMap } from 'rxjs/operators'
 import { compose as recompose, defaultProps } from 'recompose'
 import StoreContainer from './StoreContainer.js'
