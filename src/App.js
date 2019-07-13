@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter, Switch, Route } from 'react-router-dom'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Loadable from 'react-loadable'
 import StoreBuilder from './store/StoreBuilder'
 import { Loading } from './commons/components/index'
@@ -20,12 +20,12 @@ function App() {
   return (
     <div className="App">
       <StoreContainer>
-        <HashRouter>
+        <BrowserRouter>
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route exact path='/menu' component={Menu} />
           </Switch>
-        </HashRouter>
+        </BrowserRouter>
       </StoreContainer>
     </div>
   );

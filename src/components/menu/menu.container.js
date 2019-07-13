@@ -94,19 +94,19 @@ class Menu extends Component {
                             })}
                         </div>
                     ) : (
-                            <React.Fragment>
-                                <div className={styles[`menu-nav`]}>
-                                    <a onClick={() => this.onGetDishes('MENU')} className={styles[`back-button`]}>Menu</a> | <span style={{ fontWeight: 'bold' }}>{menuType}</span>
-                                </div>
+                        <React.Fragment>
+                            <div className={styles[`menu-nav`]}>
+                                <a onClick={() => this.onGetDishes('MENU')} className={styles[`back-button`]}>Menu</a> | <span style={{ fontWeight: 'bold' }}>{menuType}</span>
+                            </div>
 
-                                <div className={styles[`menu-categories`]}>
-                                    {renderDishes}
-                                </div>
-                                <ul className={styles[`page-numbers`]}>
-                                    {renderPageNumbers}
-                                </ul>
-                            </React.Fragment>
-                        )}                    
+                            <div className={styles[`menu-categories`]}>
+                                {renderDishes}
+                            </div>
+                            <ul className={styles[`page-numbers`]}>
+                                {renderPageNumbers}
+                            </ul>
+                        </React.Fragment>
+                    )}                    
                 </div>
                 <Footer />
             </div>
