@@ -302,7 +302,7 @@ export default function MenuReducers(state = initState, action) {
                         price: '8 €'
                     },
                     {
-                        name: 'Summer roll (3pcs)',
+                        name: 'Summer roll (4pcs)',
                         img: 'https://i.imgur.com/SVuwpvj.jpg',
                         price: '10 €'
                     },
@@ -332,12 +332,12 @@ export default function MenuReducers(state = initState, action) {
                     },
                     {
                         name: 'Fried rice',
-                        img: 'https://i.imgur.com/sdu9yJL.jpg',
+                        img: 'https://i.imgur.com/v8HNIIT.jpg',
                         price: '4 €'
                     },
                     {
                         name: 'Fried noodle',
-                        img: 'https://i.imgur.com/28T4Wt8.jpg',
+                        img: 'https://i.imgur.com/zmoHOBh.jpg',
                         price: '4 €'
                     },
                     {
