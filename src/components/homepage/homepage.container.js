@@ -114,7 +114,7 @@ class Homepage extends Component {
                         <h2>We're currently located in Cyprus</h2>
                     </div>
                     <div className="location">
-                    <iframe style={{width: '800', height: '600'}} src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d820.2611234102352!2d33.05091412916554!3d34.67882650164105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14e73317564c00e3%3A0x10c3fced5f4ca726!2sChristodoulou+Chatzipavlou+223%2C+Limassol%2C+Cyprus!5e0!3m2!1sen!2sfi!4v1562965475298!5m2!1sen!2sfi"  frameborder="0" allowfullscreen></iframe>
+                    <iframe style={{width: '800', height: '600'}} src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d820.2611234102352!2d33.05091412916554!3d34.67882650164105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14e73317564c00e3%3A0x10c3fced5f4ca726!2sChristodoulou+Chatzipavlou+223%2C+Limassol%2C+Cyprus!5e0!3m2!1sen!2sfi!4v1562965475298!5m2!1sen!2sfi"  frameborder="0" allowFullScreen></iframe>
                     </div>
                     
                 </section>
