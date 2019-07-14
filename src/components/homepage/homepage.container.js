@@ -130,7 +130,7 @@ class Homepage extends Component {
                         </div>
                         <div className="col span-1-of-3">
                             <blockquote>
-                            Inexpensive, healthy and great-tasting meals, delivered right to my home. We have lots of food delivery here in Warsaw, but no one comes even close to HelloVietnam. Me and my family are so in love!
+                            Inexpensive, healthy and great-tasting meals, delivered right to my home. We have lots of food delivery here in Cyprus, but no one comes even close to HelloVietnam. Me and my family are so in love!
                                 <cite><img alt='customer2' src={Cust2} />Joana Silva</cite>
                             </blockquote>
                         </div>
