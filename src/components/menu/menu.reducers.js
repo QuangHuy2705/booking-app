@@ -26,7 +26,7 @@ const initState = {
     ]
 }
 
-export default function MenuReducers(state = initState, action) {
+function MenuReducers(state = initState, action) {
     switch (action.type) {
         case 'GET_APPETIZERS':
         case 'GET_MENU':
@@ -476,3 +476,7 @@ export default function MenuReducers(state = initState, action) {
             return state
     }
 }
+
+MenuReducers.reducerName = 'MenuReducers'
+
+export default MenuReducers

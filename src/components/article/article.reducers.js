@@ -12,7 +12,7 @@ const initState = {
     ]
 }
 
-export default function ArticleReducers(state = initState, action) {
+function ArticleReducers(state = initState, action) {
     switch(action.type) {
         case 'GET_HOME':
             return initState
@@ -34,3 +34,7 @@ export default function ArticleReducers(state = initState, action) {
             return initState
     }
 }
+
+ArticleReducers.reducerName = 'ArticleReducers'
+
+export default ArticleReducers

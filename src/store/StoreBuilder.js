@@ -50,9 +50,9 @@ class StoreBuilder {
 
     registerReducers = reducerMap => {
         Object.entries(reducerMap).forEach(([name, reducer]) => {
-            if (!this.reducerMap[reducer.name]) this.reducerMap[reducer.name] = [];
-            console.log(reducer.name)
-            this.reducerMap[reducer.name].push(reducer);
+            if (!this.reducerMap[reducer.reducerName]) this.reducerMap[reducer.reducerName] = [];
+            console.log(reducer.reducerName)
+            this.reducerMap[reducer.reducerName].push(reducer);
         });
         this.store.replaceReducer(this.createRootReducer());
         // if (isObject(reducerMap)) {
