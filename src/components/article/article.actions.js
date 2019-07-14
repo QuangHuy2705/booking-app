@@ -1,0 +1,1 @@
+export const getArticle = name => ({ type: `GET_${name}` })

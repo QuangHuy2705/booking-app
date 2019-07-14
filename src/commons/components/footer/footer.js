@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom' 
 import * as styles from './footer.module.scss'
 
 export default class Footer extends React.Component {
@@ -14,10 +15,10 @@ export default class Footer extends React.Component {
                 </div>
                 <div className={styles[`social`]}>
                     <ul className="social-links">
-                        <li><a href="#"><i className="ion-social-facebook"></i></a></li>
-                        <li><a href="#"><i className="ion-social-twitter"></i></a></li>
-                        <li><a href="#"><i className="ion-social-googleplus"></i></a></li>
-                        <li><a href="#"><i className="ion-social-instagram"></i></a></li>
+                        <li><a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/Hello-VietNam-321612858516157/"><i className="ion-social-facebook"></i></a></li>
+                        <li><Link href="#"><i className="ion-social-twitter"></i></Link></li>
+                        <li><Link href="#"><i className="ion-social-googleplus"></i></Link></li>
+                        <li><Link href="#"><i className="ion-social-instagram"></i></Link></li>
                     </ul>
                 </div>
             </div>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom' 
 import { Navbar, Loading, Footer } from '../../commons/components/index'
 import '../homepage/homepage.styles.css'
 import * as styles from './menu.module.scss'
@@ -85,7 +86,7 @@ class Menu extends Component {
                                 const { name } = item
                                 return (
                                     <div key={idx} className={styles[`category`]}>
-                                        <a onClick={() => this.onGetDishes(name.split(' ').join('').toUpperCase())} className={`${styles[`category-image`]} ${styles[`category-image--${name.split(' ').join('')}`]}`} />
+                                        <Link onClick={() => this.onGetDishes(name.split(' ').join('').toUpperCase())} className={`${styles[`category-image`]} ${styles[`category-image--${name.split(' ').join('')}`]}`} />
                                         <h4 className={styles[`category-description`]}>
                                             {item.name}
                                         </h4>
@@ -96,7 +97,7 @@ class Menu extends Component {
                     ) : (
                         <React.Fragment>
                             <div className={styles[`menu-nav`]}>
-                                <a onClick={() => this.onGetDishes('MENU')} className={styles[`back-button`]}>Menu</a> | <span style={{ fontWeight: 'bold' }}>{menuType}</span>
+                                <Link onClick={() => this.onGetDishes('MENU')} className={styles[`back-button`]}>Menu</Link> | <span style={{ fontWeight: 'bold' }}>{menuType}</span>
                             </div>
 
                             <div className={styles[`menu-categories`]}>
@@ -117,9 +118,9 @@ class Menu extends Component {
 
 const mapStateToProps = state => {
     return {
-        loading: state[0].loading,
-        menuType: state[0].menuType,
-        items: state[0].items
+        loading: state.MenuReducers.loading,
+        menuType: state.MenuReducers.menuType,
+        items: state.MenuReducers.items
     }
 }
 

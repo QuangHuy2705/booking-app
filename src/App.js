@@ -16,6 +16,11 @@ const Menu = Loadable({
   loading: Loading,
 })
 
+const Article = Loadable({
+  loader: () => import('./components/article/index'),
+  loading: Loading,
+})
+
 function App() {
   return (
     <div className="App">
@@ -24,6 +29,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route exact path='/menu' component={Menu} />
+            <Route exact path='/article' component={Article} />
           </Switch>
         </BrowserRouter>
       </StoreContainer>
