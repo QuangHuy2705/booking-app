@@ -146,7 +146,7 @@ export default function MenuReducers(state = initState, action) {
                     },
                     {
                         name: 'Oyste sauce beef',
-                        img: 'https://i.imgur.com/Izvs02Y.jpg',
+                        img: 'https://i.imgur.com/WAPrPhM.jpg',
                         price: '15 €'
                     },
                     {
