@@ -43,15 +43,14 @@ class Menu extends Component {
         const currentDishes = items.slice(indexOfFirstDish, indexOfLastDish)
 
         const renderDishes = currentDishes.map((dish, idx) => {
-            const { name } = dish
-            console.log(dish.price)
+            const { name, price } = dish
             return (
                 <div key={idx} className={styles[`category`]}>
                     <img alt='food' src={dish.img} className={styles[`food-image`]} />
                     <h4 className={styles[`category-description`]}>
                         {name}
                     </h4>
-                    <p className={styles[`food-price`]}>{typeof dish.price === 'number' ? `${dish.price} €` : `${dish.price[0]} € - ${dish.price[1]} €`}</p>
+                    <p className={styles[`food-price`]}>{typeof price === 'number' ? `${price && price} €` : `${price && price[0]} € - ${price && price[1]} €`}</p>
                     <button onClick={() => this.onOrder()} className={styles[`order-button`]}>Add to cart!</button>
                 </div>
             )
