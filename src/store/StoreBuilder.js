@@ -52,7 +52,7 @@ class StoreBuilder {
         Object.entries(reducerMap).forEach(([name, reducer]) => {
             if (!this.reducerMap[reducer.reducerName]) this.reducerMap[reducer.reducerName] = [];
             console.log(reducer.reducerName)
-            this.reducerMap[reducer.reducerName].push(reducer);
+            this.reducerMap[reducer.reducerName].push(reducer); 
         });
         this.store.replaceReducer(this.createRootReducer());
         // if (isObject(reducerMap)) {

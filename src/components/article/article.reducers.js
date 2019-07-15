@@ -7,7 +7,7 @@ const initState = {
         {
             title: 'Benefits of soy milk',
             name: 'SOYMILK',
-            img: 'https://askdrnandi.com/wp-content/uploads/2017/02/Health-benefits-of-Soy-Milk.png'
+            img: 'https://i.imgur.com/mfwivhE.jpg'
         }
     ]
 }

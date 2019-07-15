@@ -1,5 +1,5 @@
 export const SoyMilkArticle = {
-    img: 'https://askdrnandi.com/wp-content/uploads/2017/02/Health-benefits-of-Soy-Milk.png',
+    img: 'https://i.imgur.com/CXHxDNN.png',
     title: 'HEALTH BENEFITS OF SOY MILK',
     description: 'Soy milk, a healthy nutritious drink, is made from soybeans that are soaked, ground and boiled with water. Soy is a great source of essential fatty acids, fiber, vitamins, proteins, and minerals. These nutrients play an important role in providing you energy and keeping your body functioning well. Here are several health benefits of soymilk I would like to introduce in this article.',
     paragraphs: [
