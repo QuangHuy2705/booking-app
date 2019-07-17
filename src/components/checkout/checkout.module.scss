@@ -78,7 +78,7 @@
                     border-radius: 2px;
                     margin: 20px 0;
                     display: grid;
-                    grid-template-columns: 1fr 1fr;
+                    grid-template-columns: 30% 70%;
                     grid-column-gap: 5px;
         
                     &-img {
@@ -151,10 +151,21 @@
 @media only screen and (max-width: 1024px) { 
     .checkout {
         padding: 50px 5%;
+        .main-content {
+
+            .cart {
+
+                &-content {
+                    .item {
+                        grid-template-columns: 45% 55%;
+                    }
+                }
+            }
+        }
     }
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 768px) {
     .checkout {
         
         .main-content {
@@ -162,6 +173,15 @@
 
             .user-info {
                 margin-bottom: 20px;
+            }
+
+            .cart {
+
+                &-content {
+                    .item {
+                        grid-template-columns: 45% 55%;
+                    }
+                }
             }
         }
     }
