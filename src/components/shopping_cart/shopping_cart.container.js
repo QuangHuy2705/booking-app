@@ -8,7 +8,7 @@ import { withRouter } from 'react-router-dom'
 class ShoppingCart extends Component {
 
     onAddMore(dish) {
-        this.props.addToCart({...dish}, false)
+        this.props.addToCart({...dish}, true)
     }
 
     onRemoveFromCart(name) {

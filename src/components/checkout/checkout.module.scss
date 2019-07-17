@@ -47,7 +47,7 @@
             .subtotal {
                 margin-bottom: 20px;
                 display: grid;
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: 30% 70%;
                 grid-column-gap: 5px;
             }
         
@@ -155,6 +155,10 @@
 
             .cart {
 
+                .subtotal {
+                    grid-template-columns: 45% 55%;
+                }
+
                 &-content {
                     .item {
                         grid-template-columns: 45% 55%;
@@ -176,6 +180,9 @@
             }
 
             .cart {
+                .subtotal {
+                    grid-template-columns: 45% 55%;
+                }
 
                 &-content {
                     .item {
