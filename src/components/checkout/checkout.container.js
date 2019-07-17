@@ -3,14 +3,53 @@ import { connect } from 'react-redux'
 import * as styles from './checkout.module.scss'
 import { Navbar, Footer } from '../../commons/components/index'
 import { addToCart, removeFromCart } from '../shopping_cart/shopping_cart.actions'
+import HTTPRequest from '../../commons/http/apiCall'
 
 class Checkout extends Component {
+    constructor(props) {
+        super(props)
+        this.state = { 
+            name: '',
+            contactNumber: '',
+            address: ''
+        }
+    }
+
+    onChange = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value, 
+        })
+    }
+
     onAddMore(dish) {
         this.props.addToCart(dish, false)
     }
 
     onRemoveFromCart(name) {
         this.props.removeFromCart(name)
+    }
+
+    onOrder(e) {
+        e.preventDefault()
+        const {items} = this.props
+        const { name, contactNumber, address } = this.state
+        if (!items || items.length === 0) {
+            alert('Your cart is empty please add more items to it ;)')
+            return
+        } 
+
+        const order = {
+            items,
+            name, 
+            contactNumber,
+            address
+        }
+
+        HTTPRequest.to('http://35.246.207.163/api/events?year=2019').post(order)
+            .then(res => console.log(res))
+            .catch(err => {
+                console.log(err)
+            })
     }
 
     render() {
@@ -27,18 +66,18 @@ class Checkout extends Component {
                     <div className={styles[`main-content`]}>
                         <div className={styles[`user-info`]}>
                             <h4 className={styles[`form-header`]}>Please fill in the form</h4>
-                            <form className={styles[`user-info-form`]}>
+                            <form onSubmit={(e) => this.onOrder(e)} className={styles[`user-info-form`]}>
                                 <div className={styles[`form-item`]}>
                                     <label htmlFor='name' >Name: </label>
-                                    <input required autoComplete='off' type='text' name='name' id='name' />
+                                    <input value={this.state.name} onChange={e => this.onChange(e)} required autoComplete='off' type='text' name='name' id='name' />
                                 </div>
                                 <div className={styles[`form-item`]}>
                                     <label htmlFor='number' >Contact Number: </label>
-                                    <input required autoComplete='off' type='text' name='number' id='number' />
+                                    <input value={this.state.contactNumber} onChange={e => this.onChange(e)} required autoComplete='off' type='text' name='contactNumber' id='number' />
                                 </div>
                                 <div className={styles[`form-item`]}>
                                     <label htmlFor='address' >Address: </label>
-                                    <input required autoComplete='off' type='text' name='address' id='address' />
+                                    <input value={this.state.address} onChange={e => this.onChange(e)} required autoComplete='off' type='text' name='address' id='address' />
                                 </div>
                                 <button className={styles[`place-order-button`]}>Place order</button>
                             </form>
