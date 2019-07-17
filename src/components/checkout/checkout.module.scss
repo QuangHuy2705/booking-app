@@ -1,0 +1,168 @@
+.checkout {
+    padding: 60px 10%;
+    
+    .main-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding: 20px 0;
+        .user-info {
+
+            .form-header {
+
+            }
+
+            &-form {
+
+                .form-item {
+                    margin: 10px 0;
+                }                
+
+                .place-order-button {
+                    text-transform: uppercase;
+                    width: 100%;
+                    background-color: #e67e22;
+                    border: none;
+                    border-radius: 2px;
+                    color: #fff;
+                    padding: 5px 0 7px 0;
+                    margin-top: 10px;
+            
+                    &:hover {
+                        background-color: #cf6d17;
+                    }
+                }
+            }
+
+        }
+
+        .cart {
+            padding: 0 30px 20px 30px;
+
+            .null-info {
+                margin-top: 15px;
+                text-align: center;
+                font-style: italic;
+            }
+
+            .subtotal {
+                margin-bottom: 20px;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-column-gap: 5px;
+            }
+        
+            // .checkout-button {
+            //     text-transform: uppercase;
+            //     width: 100%;
+            //     background-color: #e67e22;
+            //     border: none;
+            //     border-radius: 2px;
+            //     color: #fff;
+            //     padding: 5px 0 7px 0;
+            //     margin-top: 15px;
+        
+            //     &:hover {
+            //         background-color: #cf6d17;
+            //     }
+            // }
+
+            &-header {
+                text-align: center;
+                padding-bottom: 12px;
+                border-bottom: 1px solid #e67e22;
+            }
+
+            &-content {
+                .item {
+                    font-weight: 400;
+                    border-radius: 2px;
+                    margin: 20px 0;
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    grid-column-gap: 5px;
+        
+                    &-img {
+                        width: 120px;
+                        box-shadow: 0 1px 4px 0 rgba(156, 156, 156, 0.5);
+                    }
+        
+                    &-info {
+                        display: grid;
+                        flex-direction: column;
+                        justify-content: space-between;
+        
+                        .number-adjust {
+                            margin-top: 5px;
+                            display: flex;
+        
+                            .adjust-button {
+                                display: inline-block;
+                                border-radius: 2px;
+                                border: 1px solid #e67e22;
+                                cursor: pointer;
+                                width: 22px;
+                                height: 22px;
+                                position: relative;
+        
+                                &--decrease {
+                                    position: absolute;
+                                    top: -2px;
+                                    left: 50%;
+                                    transform: translate(-50%, 50%);
+                                    width: 12px;
+                                    height: 12px;
+                                    background-image: url('../../commons/resources/icons/minus-symbol.svg');
+                                    background-size: cover;
+                                    background-repeat: no-repeat;
+                                }
+        
+                                &--increase {
+                                    position: relative;
+                                    top: -2px;
+                                    left: 50%;
+                                    transform: translate(-50%, 50%);
+                                    width: 12px;
+                                    height: 12px;
+                                    background-image: url('../../commons/resources/icons/plus-symbol.svg');
+                                    background-size: cover;
+                                    background-repeat: no-repeat;
+                                }
+        
+                                &:hover {
+                                    background-color: #e67e22;
+        
+                                    .adjust-button--decrease {
+                                        background-image: url('../../commons/resources/icons/minus-symbol--white.svg');
+                                    }
+        
+                                    .adjust-button--increase {
+                                        background-image: url('../../commons/resources/icons/plus-symbol--white.svg');
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1024px) { 
+    .checkout {
+        padding: 50px 5%;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .checkout {
+        
+        .main-content {
+            grid-template-columns: 1fr;
+
+            .user-info {
+                margin-bottom: 20px;
+            }
+        }
+    }
+} 

@@ -1,35 +1,21 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import Loadable from 'react-loadable'
 import StoreBuilder from './store/StoreBuilder'
-import { Loading } from './commons/components/index'
+import { ShoppingCart, HomePage, Menu, Article, Checkout } from './components/index'
 
 const StoreContainer = StoreBuilder.createStore().createStoreProvider()
-
-const HomePage = Loadable({
-  loader: () => import('./components/homepage/index'),
-  loading: Loading,
-});
-
-const Menu = Loadable({
-  loader: () => import('./components/menu/index'),
-  loading: Loading,
-})
-
-const Article = Loadable({
-  loader: () => import('./components/article/index'),
-  loading: Loading,
-})
 
 function App() {
   return (
     <div className="App">
       <StoreContainer>
         <BrowserRouter>
+          <ShoppingCart />
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route exact path='/menu' component={Menu} />
             <Route exact path='/article' component={Article} />
+            <Route exact path='/checkout' component={Checkout} />
           </Switch>
         </BrowserRouter>
       </StoreContainer>

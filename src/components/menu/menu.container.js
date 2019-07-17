@@ -5,6 +5,7 @@ import '../homepage/homepage.styles.css'
 import * as styles from './menu.module.scss'
 import { connect } from 'react-redux'
 import { getDishes } from './menu.actions'
+import { addToCart } from '../shopping_cart/shopping_cart.actions'
 
 
 class Menu extends Component {
@@ -29,8 +30,8 @@ class Menu extends Component {
         })
     }
 
-    onOrder() {
-        alert('This feature is coming soon, please hang with us for more fun eating!')
+    onAddToCart(dish) {
+        this.props.addToCart(dish, true)
     }
 
     render() {
@@ -43,7 +44,12 @@ class Menu extends Component {
         const currentDishes = items.slice(indexOfFirstDish, indexOfLastDish)
 
         const renderDishes = currentDishes.map((dish, idx) => {
-            const { name, price } = dish
+            const { name, price, img } = dish
+            const orderItem = {
+                name,
+                price,
+                img
+            }
             return (
                 <div key={idx} className={styles[`category`]}>
                     <img alt='food' src={dish.img} className={styles[`food-image`]} />
@@ -51,7 +57,7 @@ class Menu extends Component {
                         {name}
                     </h4>
                     <p className={styles[`food-price`]}>{typeof price === 'number' ? `${price && price} €` : `${price && price[0]} € - ${price && price[1]} €`}</p>
-                    <button onClick={() => this.onOrder()} className={styles[`order-button`]}>Add to cart!</button>
+                    <button onClick={() => this.onAddToCart(orderItem)} className={styles[`order-button`]}>Add to cart!</button>
                 </div>
             )
         })
@@ -125,7 +131,8 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = {
-    getDishes
+    getDishes,
+    addToCart
 }
 
 

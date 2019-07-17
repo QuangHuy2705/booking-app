@@ -51,34 +51,64 @@ function MenuReducers(state = initState, action) {
                 menuType: 'Appetizers',
                 items: [
                     {
-                        name: 'Mango salad',
+                        name: 'Mango salad (Small)',
                         img: 'https://i.imgur.com/ldoVB49.jpg',
-                        price: [5, 8]
+                        price: 5
                     },
                     {
-                        name: 'Papaya salad',
+                        name: 'Mango salad (Large)',
+                        img: 'https://i.imgur.com/ldoVB49.jpg',
+                        price: 8
+                    },
+                    {
+                        name: 'Papaya salad (Small)',
                         img: 'https://i.imgur.com/HFAK3VO.jpg',
-                        price: [5, 8]
+                        price: 5
                     },
                     {
-                        name: 'Sweet and sour cucumber',
+                        name: 'Papaya salad (Large)',
+                        img: 'https://i.imgur.com/HFAK3VO.jpg',
+                        price: 8
+                    },
+                    {
+                        name: 'Sweet and sour cucumber (Small)',
                         img: 'https://i.imgur.com/SY7FdP6.jpg',
-                        price: [5, 8]
+                        price: 5
                     },
                     {
-                        name: 'Russian salad',
+                        name: 'Sweet and sour cucumber (Large)',
+                        img: 'https://i.imgur.com/SY7FdP6.jpg',
+                        price: 8
+                    },
+                    {
+                        name: 'Russian salad (Small)',
                         img: 'https://i.imgur.com/cIpvWsw.jpg',
-                        price: [5, 8]
+                        price: 5
                     },
                     {
-                        name: 'Beef salad',
+                        name: 'Russian salad (Large)',
+                        img: 'https://i.imgur.com/cIpvWsw.jpg',
+                        price: 8
+                    },
+                    {
+                        name: 'Beef salad (Small)',
                         img: 'https://i.imgur.com/51KuyAW.jpg',
-                        price: [6, 10]
+                        price: 6
                     },
                     {
-                        name: 'Chicken salad',
+                        name: 'Beef salad (Large)',
+                        img: 'https://i.imgur.com/51KuyAW.jpg',
+                        price: 10
+                    },
+                    {
+                        name: 'Chicken salad (Small)',
                         img: 'https://i.imgur.com/bTREzJp.jpg',
-                        price: [6, 10]
+                        price: 6
+                    },
+                    {
+                        name: 'Chicken salad (Large)',
+                        img: 'https://i.imgur.com/bTREzJp.jpg',
+                        price: 10
                     },
                     {
                         name: 'Chicken corn soup',

@@ -3,6 +3,8 @@ import LogoWhite from '../../resources/images/logo-white.png'
 import Logo from '../../resources/images/logo.png'
 import { withRouter } from 'react-router' 
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { toggleShoppingCart } from '../../../components/shopping_cart/shopping_cart.actions'
 import '../../../components/homepage/homepage.styles.css'
 import '../../resources/css/queries.css'
 
@@ -26,8 +28,13 @@ class Header extends React.Component {
         })
     }
 
+    onToggleCart() {
+        this.props.toggleShoppingCart()
+    }
+
     render() {
-        const { menuRef } = this.props
+        const { menuRef, shoppingCart } = this.props
+        const itemLength = shoppingCart ? shoppingCart.items.length : 0
         const { history: { location: {pathname} } } = this.props
 
         return (
@@ -44,7 +51,7 @@ class Header extends React.Component {
                             <li><Link  className={pathname === '/' ? 'nav-link--active' : ''}  to='/'>Homepage</Link></li>
                             <li><Link to="/menu">Menu</Link></li>
                             <li><Link to="/article">Article</Link></li>
-                            <li><Link to="/">Sign up</Link></li>
+                            <li onClick={() => this.onToggleCart()} ><Link className='nav-shopping-cart'><span className='shopping-cart-icon'/> <span className='shopping-cart-number'>{itemLength}</span> </Link></li>
                         </ul>
                         <Link onClick={() => this.onToggleNav()} className="mobile-nav-icon js--nav-icon"><i className="ion-navicon-round"></i></Link>
                     </div>
@@ -59,4 +66,15 @@ class Header extends React.Component {
     }
 }
 
-export default withRouter(Header)
+const mapStateToProps = state => {
+    const { ShoppingCartReducers } = state 
+    return {
+        shoppingCart: ShoppingCartReducers ? ShoppingCartReducers.shoppingCart : null
+    }
+}
+
+const mapDispatchToProps = {
+    toggleShoppingCart
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Header)) 
