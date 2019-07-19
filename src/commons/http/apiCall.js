@@ -5,7 +5,6 @@ const token = localStorage.getItem('JWT')
 class HTTPRequest {
     constructor() {
         this.headers = {
-            'Authorization': `Bearer ${token}`,
             'content-type': 'application/json'
         }
 
@@ -31,9 +30,8 @@ class HTTPRequest {
             method: 'POST',
             url: this.url,
             headers: this.headers,
-            body
+            data: body
         })
-
         return response
     }
 
@@ -42,7 +40,7 @@ class HTTPRequest {
             method: 'PUT',
             url: this.url,
             headers: this.headers,
-            body
+            data: body
         })
         return response
     }

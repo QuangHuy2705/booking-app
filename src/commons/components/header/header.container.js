@@ -33,8 +33,8 @@ class Header extends React.Component {
     }
 
     render() {
-        const { menuRef, shoppingCart } = this.props
-        const itemLength = shoppingCart ? shoppingCart.items.length : 0
+        const { menuRef, items } = this.props
+        const itemLength =  items.length 
         const { history: { location: {pathname} } } = this.props
 
         return (
@@ -69,7 +69,7 @@ class Header extends React.Component {
 const mapStateToProps = state => {
     const { ShoppingCartReducers } = state 
     return {
-        shoppingCart: ShoppingCartReducers ? ShoppingCartReducers.shoppingCart : null
+        items: ShoppingCartReducers ? ShoppingCartReducers.items : []
     }
 }
 

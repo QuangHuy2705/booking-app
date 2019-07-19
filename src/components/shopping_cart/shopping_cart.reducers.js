@@ -85,6 +85,12 @@ function ShoppingCartReducers(state = initState, action) {
             }
         }
 
+        case 'CLEAR_CART_DONE': 
+            return {
+                ...state,
+                items: []
+            }
+
         default:
             return state
     }

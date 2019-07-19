@@ -72,3 +72,10 @@ export const onGetExtra = (action$, state) => {
         mapTo({ type: 'GET_EXTRA_DONE' }),
     )
 }
+
+export const onClearCart = (action$) => {
+    return action$.pipe(
+        ofType('CLEAR_CART'),
+        mapTo({ type: 'CLEAR_CART_DONE' }),
+    )
+}

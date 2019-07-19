@@ -1,14 +1,14 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import * as styles from './checkout.module.scss'
 import { Navbar, Footer } from '../../commons/components/index'
-import { addToCart, removeFromCart } from '../shopping_cart/shopping_cart.actions'
+import { addToCart, removeFromCart, clearCart } from '../shopping_cart/shopping_cart.actions'
 import HTTPRequest from '../../commons/http/apiCall'
 
 class Checkout extends Component {
     constructor(props) {
         super(props)
-        this.state = { 
+        this.state = {
             name: '',
             contactNumber: '',
             address: ''
@@ -17,7 +17,7 @@ class Checkout extends Component {
 
     onChange = (e) => {
         this.setState({
-            [e.target.name]: e.target.value, 
+            [e.target.name]: e.target.value,
         })
     }
 
@@ -31,25 +31,36 @@ class Checkout extends Component {
 
     onOrder(e) {
         e.preventDefault()
-        const {items} = this.props
+        const { items, total } = this.props
         const { name, contactNumber, address } = this.state
         if (!items || items.length === 0) {
             alert('Your cart is empty please add more items to it ;)')
             return
-        } 
+        }
 
         const order = {
             items,
-            name, 
+            name,
             contactNumber,
-            address
+            address,
+            total
         }
 
-        HTTPRequest.to('http://35.246.207.163/api/events?year=2019').post(order)
-            .then(res => console.log(res))
+        console.log(order)
+        HTTPRequest.to('http://35.198.133.213/api/orders').post({order})
+            .then(() => {
+                this.props.clearCart()
+                alert('Thank you for your order, we will contact you in a moment. Enjoy your meal ;)')
+                this.setState({
+                    name: '',
+                    contactNumber: '',
+                    address: '',
+                })
+            })
             .catch(err => {
                 console.log(err)
             })
+
     }
 
     render() {
@@ -57,7 +68,7 @@ class Checkout extends Component {
         console.log(items)
 
         return (
-            <React.Fragment>    
+            <React.Fragment>
                 <Navbar />
 
                 <div className={styles[`checkout`]}>
@@ -84,43 +95,44 @@ class Checkout extends Component {
                         </div>
                         <div className={styles[`cart`]}>
                             <h4 className={styles[`cart-header`]}>Your cart</h4>
-                            {!items || items.length === 0 
-                            ? (
-                                <div className={styles[`null-info`]}>
-                                    <p>You have an empty shopping cart</p>
-                                </div>
-                            ) : (
-                                <React.Fragment>
-                                    <div className={styles[`cart-content`]}>
-                                        {items && items.map((item, idx) => {
-                                            const { name, img, price } = item 
-                                            const orderItem = { name, img, price } 
-                                            return (
-                                            <div key={item.name} className={styles[`item`]}>
-                                                <img className={styles[`item-img`]} src={item.img} alt='dish' />
-                                                <div className={styles[`item-info`]}>
-                                                    <p>{item.name} <span style={{display: 'inline-block'}} >({item.price} €)</span></p>
-                                                    <p>Quantity: {item.number}</p>
-                                                    <div className={styles[`number-adjust`]}>
-                                                        <div onClick={() => this.onAddMore(orderItem)} className={`${styles[`adjust-button`]} `}>
-                                                            <div className={styles[`adjust-button--increase`]} />
-                                                        </div>
-                                                        {item.number > 0 && (
-                                                            <div onClick={() => this.onRemoveFromCart(item.name)} style={{marginLeft: '2px'}} className={`${styles[`adjust-button`]} `} >
-                                                                <div className={styles[`adjust-button--decrease`]} />
+                            {!items || items.length === 0
+                                ? (
+                                    <div className={styles[`null-info`]}>
+                                        <p>You have an empty shopping cart</p>
+                                    </div>
+                                ) : (
+                                    <React.Fragment>
+                                        <div className={styles[`cart-content`]}>
+                                            {items && items.map((item, idx) => {
+                                                const { name, img, price } = item
+                                                const orderItem = { name, img, price }
+                                                return (
+                                                    <div key={item.name} className={styles[`item`]}>
+                                                        <img className={styles[`item-img`]} src={item.img} alt='dish' />
+                                                        <div className={styles[`item-info`]}>
+                                                            <p>{item.name} <span style={{ display: 'inline-block' }} >({item.price} €)</span></p>
+                                                            <p>Quantity: {item.number}</p>
+                                                            <div className={styles[`number-adjust`]}>
+                                                                <div onClick={() => this.onAddMore(orderItem)} className={`${styles[`adjust-button`]} `}>
+                                                                    <div className={styles[`adjust-button--increase`]} />
+                                                                </div>
+                                                                {item.number > 0 && (
+                                                                    <div onClick={() => this.onRemoveFromCart(item.name)} style={{ marginLeft: '2px' }} className={`${styles[`adjust-button`]} `} >
+                                                                        <div className={styles[`adjust-button--decrease`]} />
+                                                                    </div>
+                                                                )}
                                                             </div>
-                                                        )}
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </div>
-                                        )})}
-                                    </div>
-                                    <div className={styles[`subtotal`]}>
-                                        <div />
-                                        <h4 className={styles[`total`]}>Total: {total} €</h4>
-                                    </div>
-                                </React.Fragment>
-                            )}
+                                                )
+                                            })}
+                                        </div>
+                                        <div className={styles[`subtotal`]}>
+                                            <div />
+                                            <h4 className={styles[`total`]}>Total: {total} €</h4>
+                                        </div>
+                                    </React.Fragment>
+                                )}
                         </div>
                     </div>
                 </div>
@@ -133,16 +145,17 @@ class Checkout extends Component {
 
 const mapStateToProps = state => {
     const { ShoppingCartReducers } = state
-    
+
     return {
         items: ShoppingCartReducers ? ShoppingCartReducers.items : [],
-        total: ShoppingCartReducers ? ShoppingCartReducers.total : 0
+        total: ShoppingCartReducers ? ShoppingCartReducers.total : 0,
     }
 }
 
 const mapDispatchToProps = {
     addToCart,
-    removeFromCart
+    removeFromCart,
+    clearCart
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Checkout)
