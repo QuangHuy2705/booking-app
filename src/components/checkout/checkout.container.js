@@ -47,7 +47,7 @@ class Checkout extends Component {
         }
 
         console.log(order)
-        HTTPRequest.to('http://35.198.133.213/api/orders').post({order})
+        HTTPRequest.to('https://murmuring-wave-44107.herokuapp.com/api/orders').post({order})
             .then(() => {
                 this.props.clearCart()
                 alert('Thank you for your order, we will contact you in a moment. Enjoy your meal ;)')
