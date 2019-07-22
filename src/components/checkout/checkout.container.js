@@ -4,6 +4,8 @@ import * as styles from './checkout.module.scss'
 import { Navbar, Footer } from '../../commons/components/index'
 import { addToCart, removeFromCart, clearCart } from '../shopping_cart/shopping_cart.actions'
 import HTTPRequest from '../../commons/http/apiCall'
+import { order, toggleMessage } from './checkout.actions'
+import { Popup } from '../../commons/components/index'
 
 class Checkout extends Component {
     constructor(props) {
@@ -31,14 +33,14 @@ class Checkout extends Component {
 
     onOrder(e) {
         e.preventDefault()
-        const { items, total } = this.props
+        const { items, total, order, clearCart } = this.props
         const { name, contactNumber, address } = this.state
         if (!items || items.length === 0) {
             alert('Your cart is empty please add more items to it ;)')
             return
         }
 
-        const order = {
+        const orderItems = {
             items,
             name,
             contactNumber,
@@ -46,31 +48,48 @@ class Checkout extends Component {
             total
         }
 
-        console.log(order)
-        HTTPRequest.to('https://murmuring-wave-44107.herokuapp.com/api/orders').post({order})
-            .then(() => {
-                this.props.clearCart()
-                alert('Thank you for your order, we will contact you in a moment. Enjoy your meal ;)')
-                this.setState({
-                    name: '',
-                    contactNumber: '',
-                    address: '',
-                })
-            })
-            .catch(err => {
-                console.log(err)
-            })
+        order({order: orderItems})
+        // console.log(order)
+        // HTTPRequest.to('https://murmuring-wave-44107.herokuapp.com/api/orders').post({order})
+        //     .then(() => {
+        //         this.props.clearCart()
+        //         alert('Thank you for your order, we will contact you in a moment. Enjoy your meal ;)')
+        //         this.setState({
+        //             name: '',
+        //             contactNumber: '',
+        //             address: '',
+        //         })
+        //     })
+        //     .catch(err => {
+        //         console.log(err)
+        //     })
+        clearCart()
+        this.setState({
+            name: '',
+            contactNumber: '',
+            address: '',
+        })
 
     }
 
+    onToggleCart() {
+        this.props.toggleMessage()
+    }
+
     render() {
-        const { items, total } = this.props
+        const { items, total, isMessageShown } = this.props
         console.log(items)
 
         return (
             <React.Fragment>
+                    <div className={isMessageShown ? `${styles[`popup`]} ${styles[`popup--open`]}` : `${styles[`popup`]} ${styles[`popup--closed`]}`}>
+                        <div onClick={() => this.onToggleCart()} className={styles[`popup-overlay`]} />
+                        <div className={styles[`main-content`]}>
+                            <div onClick={() => this.onToggleCart()} className={styles[`icon--close`]} />
+                            <p>Thank you for the order, we will contact you in a moment. Enjoy your meals ;)</p> 
+                        </div>
+                    </div>
                 <Navbar />
-
                 <div className={styles[`checkout`]}>
                     <h2>You are checking out</h2>
 
@@ -144,18 +163,21 @@ class Checkout extends Component {
 }
 
 const mapStateToProps = state => {
-    const { ShoppingCartReducers } = state
+    const { ShoppingCartReducers, CheckoutReducers } = state
 
     return {
         items: ShoppingCartReducers ? ShoppingCartReducers.items : [],
         total: ShoppingCartReducers ? ShoppingCartReducers.total : 0,
+        isMessageShown: CheckoutReducers ? CheckoutReducers.isMessageShown : false
     }
 }
 
 const mapDispatchToProps = {
     addToCart,
     removeFromCart,
-    clearCart
+    clearCart,
+    order,
+    toggleMessage
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Checkout)

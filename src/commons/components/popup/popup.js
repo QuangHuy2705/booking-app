@@ -9,6 +9,7 @@ class Popup extends React.Component {
     }
 
     render() {
+        console.log(this.props.children)
         const open = this.props.open ? this.props.open : false
 
         return (

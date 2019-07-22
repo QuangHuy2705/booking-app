@@ -1,5 +1,4 @@
 const initState = {
-    loading: false,
     menuType: 'menu',
     items: [
         {
@@ -28,6 +27,8 @@ const initState = {
 
 function MenuReducers(state = initState, action) {
     switch (action.type) {
+        case 'TOGGLE_LOADING': 
+            return state
         case 'GET_APPETIZERS':
         case 'GET_MENU':
         case 'GET_MAINDISH':
@@ -38,7 +39,6 @@ function MenuReducers(state = initState, action) {
         case 'GET_NOODLESANDPHO':
             return {
                 ...state,
-                loading: true
             }
 
         case 'GET_MENU_DONE':
@@ -47,7 +47,6 @@ function MenuReducers(state = initState, action) {
         case 'GET_APPETIZERS_DONE':
             return {
                 ...state,
-                loading: false,
                 menuType: 'Appetizers',
                 items: [
                     {
@@ -131,7 +130,6 @@ function MenuReducers(state = initState, action) {
         case 'GET_MAINDISH_DONE':
             return {
                 ...state,
-                loading: false,
                 menuType: 'Main Dish',
                 items: [
                     {
@@ -245,7 +243,6 @@ function MenuReducers(state = initState, action) {
         case 'GET_FRIEDRICE_DONE':
             return {
                 ...state,
-                loading: false,
                 menuType: 'Fried rice',
                 items: [
                     {
@@ -323,7 +320,6 @@ function MenuReducers(state = initState, action) {
         case 'GET_ROLLS_DONE':
             return {
                 ...state,
-                loading: false,
                 menuType: 'Rolls',
                 items: [
                     {
@@ -347,7 +343,6 @@ function MenuReducers(state = initState, action) {
         case 'GET_EXTRA_DONE':
             return {
                 ...state,
-                loading: false,
                 menuType: 'Extra',
                 items: [
                     {
@@ -381,7 +376,6 @@ function MenuReducers(state = initState, action) {
         case 'GET_DRINKS_DONE':
             return {
                 ...state,
-                loading: false,
                 menuType: 'Drinks',
                 items: [
                     {

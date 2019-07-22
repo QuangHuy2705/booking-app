@@ -2,8 +2,13 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import StoreBuilder from './store/StoreBuilder'
 import { ShoppingCart, HomePage, Menu, Article, Checkout } from './components/index'
+import { AppReducers } from './commons/appConfig/appReducers'
+import * as AppEpics from './commons/appConfig/appEpics'
+import { Loading } from './commons/components/index'
 
-const StoreContainer = StoreBuilder.createStore().createStoreProvider()
+//register default reducers, epics
+
+const StoreContainer = StoreBuilder.createStore().registerReducers([AppReducers]).registerEpics(AppEpics).createStoreProvider()
 
 function App() {
   return (
@@ -11,6 +16,7 @@ function App() {
       <StoreContainer>
         <BrowserRouter>
           <ShoppingCart />
+          <Loading />
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route exact path='/menu' component={Menu} />

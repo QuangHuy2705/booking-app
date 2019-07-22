@@ -6,6 +6,7 @@ import * as styles from './menu.module.scss'
 import { connect } from 'react-redux'
 import { getDishes } from './menu.actions'
 import { addToCart } from '../shopping_cart/shopping_cart.actions'
+import { toggleLoading } from '../../commons/appConfig/appActions'
 
 
 class Menu extends Component {
@@ -85,7 +86,6 @@ class Menu extends Component {
                 <Navbar />
                 <div className={styles.menu}>
                     <h2>Pick your favorites from our delicious menu</h2>
-                    {loading && (<Loading />)}
                     {menuType === 'menu' ? (
                         <div className={styles[`menu-categories`]}>
                             {items && items.map((item, idx) => {
@@ -132,7 +132,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
     getDishes,
-    addToCart
+    addToCart,
+    toggleLoading
 }
 
 

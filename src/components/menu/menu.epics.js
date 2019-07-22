@@ -1,75 +1,121 @@
 import { ofType } from 'redux-observable'
-import { mapTo, delay } from 'rxjs/operators'
+import { mapTo, delay, startWith, endWith, tap, mergeMap } from 'rxjs/operators'
+import { of } from 'rxjs'
 
 export const onGetAppetizers = (action$, state) => {
     return action$.pipe(
         ofType('GET_APPETIZERS'),
-        delay(200),
-        mapTo({ type: 'GET_APPETIZERS_DONE' }),
+        mergeMap(action => {
+            return of({ type: 'GET_APPETIZERS_DONE' }).pipe(
+                delay(200),
+                startWith({ type: 'TOGGLE_LOADING' }),
+                endWith({ type: 'TOGGLE_LOADING' })
+            )
+        }),
     )
 }
 
 export const onGetMenu = (action$, state) => {
     return action$.pipe(
         ofType('GET_MENU'),
-        delay(200),
-        mapTo({ type: 'GET_MENU_DONE' }),
+        mergeMap(action => {
+            return of({ type: 'GET_MENU_DONE' }).pipe(
+                delay(200),
+                startWith({ type: 'TOGGLE_LOADING' }),
+                endWith({ type: 'TOGGLE_LOADING' })
+            )
+        }),
     )
 }
 
 export const onGetMainDish = (action$, state) => {
     return action$.pipe(
         ofType('GET_MAINDISH'),
-        delay(200),
-        mapTo({ type: 'GET_MAINDISH_DONE' }),
+        mergeMap(action => {
+            return of({ type: 'GET_MAINDISH_DONE' }).pipe(
+                delay(200),
+                startWith({ type: 'TOGGLE_LOADING' }),
+                endWith({ type: 'TOGGLE_LOADING' })
+            )
+        }),
     )
 }
 
 export const onGetDrinks = (action$, state) => {
     return action$.pipe(
         ofType('GET_DRINKS'),
-        delay(200),
-        mapTo({ type: 'GET_DRINKS_DONE' }),
+        mergeMap(action => {
+            return of({ type: 'GET_DRINKS_DONE' }).pipe(
+                delay(200),
+                startWith({ type: 'TOGGLE_LOADING' }),
+                endWith({ type: 'TOGGLE_LOADING' })
+            )
+        }),
     )
 }
 
 export const onGetNoodlesandPho = (action$, state) => {
     return action$.pipe(
         ofType('GET_NOODLESANDPHO'),
-        delay(200),
-        mapTo({ type: 'GET_NOODLESANDPHO_DONE' }),
+        mergeMap(action => {
+            return of({ type: 'GET_NOODLESANDPHO_DONE' }).pipe(
+                delay(200),
+                startWith({ type: 'TOGGLE_LOADING' }),
+                endWith({ type: 'TOGGLE_LOADING' })
+            )
+        }),
     )
 }
 
 export const onGetSideDish = (action$, state) => {
     return action$.pipe(
         ofType('GET_SIDEDISH'),
-        delay(200),
-        mapTo({ type: 'GET_SIDEDISH_DONE' }),
+        mergeMap(action => {
+            return of({ type: 'GET_SIDEDISH_DONE' }).pipe(
+                delay(200),
+                startWith({ type: 'TOGGLE_LOADING' }),
+                endWith({ type: 'TOGGLE_LOADING' })
+            )
+        }),
     )
 }
 
 export const onGetFriedRice = (action$, state) => {
     return action$.pipe(
         ofType('GET_FRIEDRICE'),
-        delay(200),
-        mapTo({ type: 'GET_FRIEDRICE_DONE' }),
+        mergeMap(action => {
+            return of({ type: 'GET_FRIEDRICE_DONE' }).pipe(
+                delay(200),
+                startWith({ type: 'TOGGLE_LOADING' }),
+                endWith({ type: 'TOGGLE_LOADING' })
+            )
+        }),
     )
 }
 
 export const onGetRolls = (action$, state) => {
     return action$.pipe(
         ofType('GET_ROLLS'),
-        delay(200),
-        mapTo({ type: 'GET_ROLLS_DONE' }),
+        mergeMap(action => {
+            return of({ type: 'GET_ROLLS_DONE' }).pipe(
+                delay(200),
+                startWith({ type: 'TOGGLE_LOADING' }),
+                endWith({ type: 'TOGGLE_LOADING' })
+            )
+        }),
     )
 }
 
 export const onGetExtra = (action$, state) => {
     return action$.pipe(
         ofType('GET_EXTRA'),
-        delay(200),
-        mapTo({ type: 'GET_EXTRA_DONE' }),
+        mergeMap(action => {
+            return of({ type: 'GET_EXTRA_DONE' }).pipe(
+                delay(200),
+                startWith({ type: 'TOGGLE_LOADING' }),
+                endWith({ type: 'TOGGLE_LOADING' })
+            )
+        }),
     )
 }
 
