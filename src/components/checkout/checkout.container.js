@@ -49,20 +49,6 @@ class Checkout extends Component {
         }
 
         order({order: orderItems})
-        // console.log(order)
-        // HTTPRequest.to('https://murmuring-wave-44107.herokuapp.com/api/orders').post({order})
-        //     .then(() => {
-        //         this.props.clearCart()
-        //         alert('Thank you for your order, we will contact you in a moment. Enjoy your meal ;)')
-        //         this.setState({
-        //             name: '',
-        //             contactNumber: '',
-        //             address: '',
-        //         })
-        //     })
-        //     .catch(err => {
-        //         console.log(err)
-        //     })
         clearCart()
         this.setState({
             name: '',
@@ -82,13 +68,13 @@ class Checkout extends Component {
 
         return (
             <React.Fragment>
-                    <div className={isMessageShown ? `${styles[`popup`]} ${styles[`popup--open`]}` : `${styles[`popup`]} ${styles[`popup--closed`]}`}>
-                        <div onClick={() => this.onToggleCart()} className={styles[`popup-overlay`]} />
-                        <div className={styles[`main-content`]}>
-                            <div onClick={() => this.onToggleCart()} className={styles[`icon--close`]} />
-                            <p>Thank you for the order, we will contact you in a moment. Enjoy your meals ;)</p> 
-                        </div>
+                <div className={isMessageShown ? `${styles[`popup`]} ${styles[`popup--open`]}` : `${styles[`popup`]} ${styles[`popup--closed`]}`}>
+                    <div onClick={() => this.onToggleCart()} className={styles[`popup-overlay`]} />
+                    <div className={styles[`main-content`]}>
+                        <div onClick={() => this.onToggleCart()} className={styles[`icon--close`]} />
+                        <p>Thank you for the order, we will contact you in a moment. Enjoy your meals ;)</p> 
                     </div>
+                </div>
                 <Navbar />
                 <div className={styles[`checkout`]}>
                     <h2>You are checking out</h2>

@@ -32,6 +32,20 @@ class Menu extends Component {
     }
 
     onAddToCart(dish) {
+        const options = {
+            timeZone: 'Europe/Helsinki',
+            hour: 'numeric',
+            hourCycle: 'h24'
+        }
+        const date = new Date()
+        const formatter = new Intl.DateTimeFormat([], options)
+        const hour = formatter.format(date)
+        console.log(hour)
+
+        if (hour > 23 || hour < 12) {
+            alert('Delivery service is only available from 12h to 23h, please come back later.')
+            return 
+        }
         this.props.addToCart(dish, true)
     }
 

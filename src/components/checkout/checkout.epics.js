@@ -8,7 +8,7 @@ export const onOrder = (action$, state) => {
         ofType('ORDER'),
         mergeMap(action => {
             const { order } = action.payload
-            return from(HTTP.to('https://murmuring-wave-44107.herokuapp.com/api/orders').post({order}))
+            return from(HTTP.to('localhost:8080/api/orders').post({order}))
                 .pipe(
                     map(action => {
                         return {type: 'ORDER_DONE'}
